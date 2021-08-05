@@ -31,6 +31,7 @@ export const consumerInit = async () => {
 
   let startTime = Date.now();
 
+  // similar to sns alert receiver
   await consumer.run({
     eachMessage: async (data) => {
       //console.log('------------------->>>',data)

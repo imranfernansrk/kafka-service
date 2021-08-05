@@ -3,6 +3,7 @@ import dynamoose from 'dynamoose';
 import {Route} from './routes'
 import {producerInit} from './producer'
 import {consumerInit} from './consumer'
+import {  } from "@bambe/kafka";
 
 
 class App{

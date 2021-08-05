@@ -3,6 +3,7 @@ import * as winston from 'winston'
 
 let producer: Producer
 const kafka = new Kafka({ brokers: ["localhost:9092"] })
+// what if we use this in prod mode
 
 export async function producerInit() {
     producer = kafka.producer()
@@ -35,7 +36,7 @@ export async function send(text: any) {
     })
     try {
          producer.send({
-            topic: "CreateTopic1mano1",
+            topic: "CreateTopic1",
             messages: [
                 {
                     value: data
