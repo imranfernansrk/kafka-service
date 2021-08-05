@@ -1,9 +1,7 @@
 import express,{ Application} from 'express'
-import dynamoose from 'dynamoose';
 import {Route} from './routes'
-import {producerInit} from './producer'
-import {consumerInit} from './consumer'
-import { KafkaService } from "@bambe/kafka";
+import { createSubscription } from "./ConsumerSubscribe";
+// import {producerInit} from './producer'
 
 class App{
     public app: Application
@@ -12,16 +10,11 @@ class App{
         this.app = express()
         this.app.use(express.json())
         this.route = new Route()
+        createSubscription();
         this.initialize()
     }
-
     private async initialize(){
-        const kafkaService = new KafkaService();
-        kafkaService.kafkaConsole();
-        kafkaService.kafkaConfiguration();
-        
-        producerInit()
-        consumerInit()
+        // producerInit()
         this.route.routes(this.app)
     }
 

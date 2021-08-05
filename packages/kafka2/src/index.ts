@@ -1,21 +1,31 @@
-import express,{ Application} from 'express'
+import express, { Application } from 'express'
+import { createSubscription } from "./ConsumerSubscribe";
+import { KafkaService } from "@bambe/kafka";
+import { ConsumerConfig, ConsumerSubscribeTopic, KafkaConfig } from 'kafkajs';
+import { kafkaReceiver } from "./KafkaReceiver";
 
-import {consumerInit} from './cosumer'
-
-
-class App{
+class App {
     public app: Application
-    constructor(){
+    constructor() {
         this.app = express()
-        this.initialize()
+        createSubscription();
+        // this.consumerHealthCheck();
     }
+    // public consumerHealthCheck() {
+    //     const kafkaConfig: KafkaConfig = { brokers: ["localhost:9092"] };
+    //     const kafkaService = new KafkaService(kafkaConfig);
 
-    private async initialize(){
-        consumerInit()
-    }
+    //     const consumer: ConsumerConfig = { groupId: '' + Date.now() }
+    //     kafkaService.consumerInit(consumer);
 
-    public async listen(){
-        await this.app.listen(5005, ()=>{
+    //     const subscribe: ConsumerSubscribeTopic = { topic: 'CreateTopic1', fromBeginning: true };
+    //     kafkaService.consumerSubscribe(subscribe);
+
+    //     kafkaService.consumerRunMessage();
+    // }
+
+    public async listen() {
+        await this.app.listen(5005, () => {
             console.log('Express server listening at 5005')
         })
     }
