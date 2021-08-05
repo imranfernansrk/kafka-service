@@ -1,6 +1,6 @@
 {
   "name": "kafka1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bambe/kafka": "1.0.0",
+    "@bambe/kafka": "^1.0.1",
     "dynamoose": "^2.7.3",
     "express": "^4.17.1",
     "express-winston": "^3.0.1",
