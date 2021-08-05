@@ -3,7 +3,6 @@ import { ConsumerConfig, ConsumerSubscribeTopic, KafkaConfig } from "kafkajs";
 import { kafkaReceiver } from "./KafkaReceiver";
 
 export async function createSubscription() {
-
     const kafkaConfig: KafkaConfig = { brokers: ["localhost:9092"] };
     const kafkaService = new KafkaService(kafkaConfig);
 

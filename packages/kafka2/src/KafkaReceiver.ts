@@ -1,5 +1,11 @@
 export function kafkaReceiver(eventData: any) {
-    console.log('====================================');
-    console.log('Successfully got the event data', eventData);
-    console.log('====================================');
+    const event = JSON.parse(eventData);
+    let type = event.eventType;
+    let data = event.data;
+
+    if (type == 'postMedia') {
+        console.log('====================================');
+        console.log(`Successfully got the ${type} event data --->`, data);
+        console.log('====================================');
+    }
 }
