@@ -3,8 +3,7 @@ import dynamoose from 'dynamoose';
 import {Route} from './routes'
 import {producerInit} from './producer'
 import {consumerInit} from './consumer'
-import {  } from "@bambe/kafka";
-
+import { KafkaService } from "@bambe/kafka";
 
 class App{
     public app: Application
@@ -17,6 +16,10 @@ class App{
     }
 
     private async initialize(){
+        const kafkaService = new KafkaService();
+        kafkaService.kafkaConsole();
+        kafkaService.kafkaConfiguration();
+        
         producerInit()
         consumerInit()
         this.route.routes(this.app)

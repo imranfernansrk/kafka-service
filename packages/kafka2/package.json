@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@bambe/kafka": "^1.0.1",
     "express": "^4.17.1",
     "kafka-node": "^5.0.0",
     "kafkajs": "^1.15.0",
